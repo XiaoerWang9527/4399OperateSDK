@@ -139,6 +139,18 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
             android:name="cn.m4399.operate.ui.activity.CustomWebActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+	    
+	<activity
+	    android:name="cn.m4399.operate.ui.activity.CommonActivity"
+	    android:configChanges="orientation|screenSize|keyboardHidden"
+	    android:screenOrientation="behind"
+	    android:theme="@style/m4399ActivityTheme">
+	</activity>
+	<activity
+	    android:name="cn.m4399.operate.ui.activity.GetActivationCodeActivity"
+	    android:configChanges="orientation|screenSize|keyboardHidden"
+	    android:theme="@style/m4399TransparentStyle">
+	</activity>
             
         <!--------以下为第三方支付SDK Activity&Service配置------------>
         <activity
@@ -370,6 +382,7 @@ mOpeCenter.recharge(MainActivity.this,
 - 充值审核模式可以在后台配置，具体请咨询相关运营人员  
 - 充值审核模式下，没有正常的充值界面，充值渠道与参数都是固定的  
 
+
 ## 获取SDK版本号
 ```java
 mOpeCenter.getVersion();
@@ -385,4 +398,9 @@ String resultMessage = OperateCenter.getResultMsg(resultCode);
 游戏退出时调用本接口，释放SDK资源以及保存相关数据。
 ```java
 mOpeCenter.destroy();
+```
+
+## 绑定手机
+```java
+mOpeCenter.bindPhone(MainActivity.this);
 ```
