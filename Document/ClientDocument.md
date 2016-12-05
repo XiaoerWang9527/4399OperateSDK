@@ -425,8 +425,9 @@ public void onBindPhoneClicked(View view) {
 
 ```
 ## 检查手机绑定状态
-```java、
-/*该接口为异步接口
+```java
+/*
+*该接口为异步接口
 *返回值：
 *resultCode：
 * -2：非网络问题的检查绑定状态失败
