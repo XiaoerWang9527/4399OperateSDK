@@ -402,5 +402,50 @@ mOpeCenter.destroy();
 
 ## 绑定手机
 ```java
-mOpeCenter.bindPhone(MainActivity.this);
+/*
+*返回值：
+*resultCode：
+* -3：用户取消绑定
+* 0：用户未登录（无需绑定） 
+* 1：已绑定，无需再次绑定（无需绑定） 
+* 2：绑定成功
+* 3：已绑定，游戏关闭绑定功能（无需绑定） 
+* 4：未绑定，游戏关闭绑定功能（无需绑定） 
+*msg：绑定成功或失败的描述信息
+**/ 
+public void onBindPhoneClicked(View view) {
+	mOpeCenter.bindPhone(this, new OnPhoneBindResultListener() {
+	    @Override
+	    public void onPhoneBindResult(int resultCode, String msg) {
+		Log.v(TAG, "bindPhone resultCode=" + resultCode+",msg="+msg);
+		Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
+	    }
+	});
+}
+
 ```
+## 检查手机绑定状态
+```java、
+/*该接口为异步接口
+*返回值：
+*resultCode：
+* -2：非网络问题的检查绑定状态失败
+* -1：网络异常的检查绑定状态失败
+* 0：用户未登录
+* 1：游戏开启绑定手机功能，用户已绑定手机号
+* 2：游戏开启绑定手机功能，用户未绑定手机号
+* 3：游戏未开启绑定手机功能，用户已绑定手机号
+* 4：游戏未开启绑定手机功能，用户未绑定手机号
+*msg：查询结果的描述信息
+**/ 
+    public void onCheckBindPhoneClicked(View view) {
+        mOpeCenter.checkBindPhoneState(new OnCheckPhoneBindStateListener() {
+            @Override
+            public void onCheckPhoneBindState(int resultCode, String msg) {
+                Log.v(TAG, "check bindPhone resultCode=" + resultCode+",msg="+msg);
+                Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+```
+
