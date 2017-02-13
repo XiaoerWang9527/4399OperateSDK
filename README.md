@@ -1,7 +1,7 @@
 ﻿4399运营SDK 接入说明
 ==============
 # SDK下载
-* [v2.11.0.7](https://github.com/4399SDKDev/4399OperateSDK/archive/v2.11.0.7.zip) (__2016-12-12__) [更新日志](/Document/VersionLog.md)
+* [v2.11.0.9](https://github.com/4399SDKDev/4399OperateSDK/archive/v2.11.0.9.zip) (__2017-02-13__) [更新日志](/Document/VersionLog.md)
 
 # 接入文档
 [Android SDK客户端接入说明文档](https://github.com/4399SDKDev/4399OperateSDK/blob/master/Document/ClientDocument.md)   
