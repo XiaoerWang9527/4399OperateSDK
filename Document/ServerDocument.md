@@ -66,7 +66,9 @@ serverid|否|int|要充值的服务区号。只针对有分服的游戏有效。
 mark|否|string|作为预留字段，部分游戏在游戏内发起充值时，会生成唯一标识来标注该笔充值的相关信息时，可以用本字段。（游戏方生成的订单号）
 roleid|否|int|要充值的游戏角色id，只针对pc端充值时，需要选择游戏角色的游戏有效。roleid的值由角色接口提供（见接口2）
 time|是|int|发起请求时的时间戳
-sign|是|string|加密签名，签名计算为：`$sign` = md5(`$orderid` . `$uid` . `$money` . `$gamemoney` . `$serverid` . `$secrect` . `$mark` . `$roleid`.`$time`); 当参数`$serverid`,`$mark` ,`$roleid`为空时，不参与签名计算。详见[签名说明](#签名说明)。
+coupon_mark|否|String|优惠券的唯一标识
+coupon_money|否|int|优惠券的金额
+sign|是|string|加密签名，签名计算为：`$sign` = md5(`$orderid` . `$uid` . `$money` . `$gamemoney` . `$serverid` . `$secrect` . `$mark` . `$roleid`.`$time`.`$coupon_mark`.`$coupon_money`); 当参数`$serverid`,`$mark` ,`$roleid`为空时，不参与签名计算。详见[签名说明](#签名说明)。
 
 
 ### 返回结果
