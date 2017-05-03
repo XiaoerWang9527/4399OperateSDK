@@ -68,7 +68,7 @@ roleid|否|int|要充值的游戏角色id，只针对pc端充值时，需要选�
 time|是|int|发起请求时的时间戳
 coupon_mark|否|String|优惠券的唯一标识
 coupon_money|否|int|优惠券的金额
-sign|是|string|加密签名，签名计算为：`$sign` = md5(`$orderid` . `$uid` . `$money` . `$gamemoney` . `$serverid` . `$secrect` . `$mark` . `$roleid`.`$time`.`$coupon_mark`.`$coupon_money`); 当参数`$serverid`,`$mark` ,`$roleid`为空时，不参与签名计算。详见[签名说明](#签名说明)。
+sign|是|string|加密签名，签名计算为：`$sign` = md5(`$orderid` . `$uid` . `$money` . `$gamemoney` . `$serverid` . `$secrect` . `$mark` . `$roleid`.`$time`.`$coupon_mark`.`$coupon_money`); 当参数`$serverid`,`$mark` ,`$roleid`,`$coupon_mark`,`$coupon_money`为空时，不参与签名计算。详见[签名说明](#签名说明)。
 
 
 ### 返回结果
