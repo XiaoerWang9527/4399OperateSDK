@@ -1,4 +1,4 @@
-
+﻿
 4399运营SDK Android客户端接入说明
 ======================
 
@@ -224,15 +224,17 @@ mOpeCenter.init(new OperateCenter.OnInitGloabListener() {
 	}
 
 	// 注销帐号的回调， 包括个人中心里的注销和logout()注销方式
-	// fromUserCenter区分是否是从悬浮窗-个人中心注销的，若是则为true，不是为false
+	// fromUserCenter区分是否是从悬浮窗-个人中心("4399游戏助手页面")注销的，若是则为true，不是为false
 	@Override
 	public void onUserAccountLogout(boolean fromUserCenter, int resultCode) {
 	}
 
-	// 个人中心里切换帐号的回调
-	@Override
-	public void onSwitchUserAccountFinished(User userInfo) {
-	}
+ // 切换帐号的回调 
+ //fromUserCenter区分是否是从"4399游戏助手页面"切换的，若是则为true，不是为false
+    @Override
+    public void onSwitchUserAccountFinished(boolean fromUserCenter,User userInfo) {
+       
+    }
 });
 ```
 
