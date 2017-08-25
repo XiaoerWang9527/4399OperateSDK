@@ -110,74 +110,88 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
 - 注册SDK相关Activity&Service，注意必须放入`<application>`元素区块内
 ```xml
 	<!--6.0系统授权辅助Actiivty-->
-        <activity
+       <activity
             android:name="cn.m4399.common.permission.AuthActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="behind"
-            android:theme="@style/m4399PermissionActivityStyle" />
+            android:multiprocess="false"
+            android:theme="@style/m4399PermissionActivityStyle"/>
             
         <!-- For 4399 recharging SDK. 请不要在此处修改RechargeActivity的方向设置，因为某些2。3的机型启动Activity总是先启动
           	竖屏，然后强制转换成横屏，这会导致潜在问题. -->
         <!-- activity的配置不能少于orientation|screenSize|keyboardHidden，这些配置是为了防止Activity被系统或第三方界面强  
         	拉成竖屏时，发生重建而加入的。SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，否则会包初始化问题 -->
             
+         <!-- For 4399 recharging SDK. -->
         <activity
             android:name="cn.m4399.recharge.ui.activity.RechargeActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:exported="true"
-            android:theme="@style/m4399ActivityTheme" />
+            android:screenOrientation="behind"
+            android:theme="@style/m4399ActivityTheme">
+        </activity>
 
         <!-- For 4399 Operation SDK -->
         <activity
             android:name="cn.m4399.operate.ui.activity.LoginActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@style/m4399TransparentStyle" />
+            android:screenOrientation="behind"
+            android:theme="@style/m4399TransparentStyle"/>
         <activity
             android:name="cn.m4399.operate.ui.activity.UserCenterActivity"
-            android:hardwareAccelerated="false"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:hardwareAccelerated="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="cn.m4399.sdk.action.USER_CENTER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name="cn.m4399.operate.ui.activity.CustomWebActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-	    
-	<activity
-	    android:name="cn.m4399.operate.ui.activity.CommonActivity"
-	    android:configChanges="orientation|screenSize|keyboardHidden"
-	    android:screenOrientation="behind"
-	    android:theme="@style/m4399ActivityTheme">
-	</activity>
-	<activity
-	    android:name="cn.m4399.operate.ui.activity.GetActivationCodeActivity"
-	    android:configChanges="orientation|screenSize|keyboardHidden"
-	    android:theme="@style/m4399TransparentStyle">
-	</activity>
-            
-        <!--------以下为第三方支付SDK Activity&Service配置------------>
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+
         <activity
+            android:name="cn.m4399.operate.ui.activity.CommonActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@style/m4399ActivityTheme">
+        </activity>
+        <activity
+            android:name="cn.m4399.operate.ui.activity.GetActivationCodeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@style/m4399TransparentStyle">
+        </activity>
+
+        <!--------以下为第三方支付SDK Activity&Service配置------------>
+               <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
+            android:windowSoftInputMode="adjustResize|stateHidden">
+        </activity>
+
         <!-- For YouYiFu -->
         <activity
             android:name="com.arcsoft.hpay100.HPaySdkActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:screenOrientation="behind"
-            android:theme="@style/hpay_dialog_style" >
+            android:theme="@style/hpay_dialog_style">
         </activity>
         <activity
             android:name="com.arcsoft.hpay100.web.HPayWebActivity"
-            android:screenOrientation="behind"
             android:configChanges="keyboardHidden|screenSize|orientation"
-            android:theme="@style/hpay_custom_confim_dialog" >
+            android:screenOrientation="behind"
+            android:theme="@style/hpay_custom_confim_dialog">
         </activity>
         <activity
             android:name="com.arcsoft.hpay100.web.HPayWebFullActivity"
-            android:screenOrientation="behind"
-            android:configChanges="keyboardHidden|screenSize|orientation" >
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:screenOrientation="behind">
         </activity>
 ```
 * 注：第三方支付SDK的Activity需在AndroidManifest.xml中强制配置横竖屏，请游戏方根据游戏的横竖屏要求手工配置`landscape`|`portrait`  
