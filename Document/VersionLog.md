@@ -6,6 +6,8 @@
 * 修复首页崩溃的bug
 * 修复在个人中心切换账号后充值过程中账号失效的bug
 * 首页设置图标调整、布局优化
+* manifest文件中UserCenterActivity的配置加上 android:screenOrientation="behind"
+* manifest中所有的Activity配置加上android:screenOrientation="behind"
 
 ## v2.13.1.1
 
