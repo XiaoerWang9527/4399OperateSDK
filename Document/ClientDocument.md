@@ -126,7 +126,7 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
         <activity
             android:name="cn.m4399.recharge.ui.activity.RechargeActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@style/m4399TransparentStyle"
+            android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen"
             android:screenOrientation="behind">
         </activity>
 
@@ -135,7 +135,7 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
             android:name="cn.m4399.operate.ui.activity.LoginActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="behind"
-            android:theme="@style/m4399TransparentStyle"/>
+            android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen"/>
         <activity
             android:name="cn.m4399.operate.ui.activity.UserCenterActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -163,7 +163,7 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
             android:name="cn.m4399.operate.ui.activity.GetActivationCodeActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="behind"
-            android:theme="@style/m4399TransparentStyle">
+            android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen">
         </activity>
 
         <!--------以下为第三方支付SDK Activity&Service配置------------>
@@ -180,7 +180,7 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
             android:name="com.arcsoft.hpay100.HPaySdkActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:screenOrientation="behind"
-            android:theme="@style/m4399TransparentStyle">
+            android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen">
         </activity>
         <activity
             android:name="com.arcsoft.hpay100.web.HPayWebActivity"
