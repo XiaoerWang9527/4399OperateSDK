@@ -198,6 +198,20 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
         拉成竖屏时，发生重建而加入的。因为Activity重建有可能会因为某些初始化不全，发生crash。  
 * SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，缺少orientation|screenSize|keyboardHidden有可能发生初始化问题。
 
+
+- 兼容7.0+ 避免安装更新崩溃，注意必须放入`<application>`元素区块内
+```xml
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="cn.m4399.game.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/m4399_ope_file_paths" />
+        </provider>
+```
+
 ### 代码混淆配置
 如果游戏有需要进行代码混淆，请不要混淆联编的jar包下的类，可以在`proguard.cfg`文件里追加以下配置
 
