@@ -470,13 +470,8 @@ public void onBindPhoneClicked(View view) {
 ## 跳转到游戏圈帖子详情页面
 ```java
 /**
- * 打开游戏盒游戏圈指定帖子，若没有游戏圈toast提示用户，若没有下载游戏盒则提示下载
- *
- * @param activity
- * @param id 帖子id
- */
-public void showGameCircleDetail(Activity activity,int id) {
-    mAccountManager.showGameCircleDetail(activity,id);
-}
+* 打开游戏盒游戏圈指定帖子，若没有游戏圈toast提示用户，若没有下载游戏盒则提示下载
+*/
+mOpeCenter.showGameCircleDetail(MainActivity.this,9998);
 
 ```
