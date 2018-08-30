@@ -203,7 +203,7 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
 ```xml
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="cn.m4399.game.FileProvider"
+            android:authorities="游戏包名.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
