@@ -500,3 +500,15 @@ mOpeCenter.showGameCircleDetail(MainActivity.this,9998);
 mOpeCenter.showGameCommentArea(MainActivity.this);
 
 ```
+
+## 跳转到游戏圈页面
+```java
+/**
+* 打开游戏盒该游戏的游戏圈页面
+* 若没有初始化或者初始化失败，调用此方法，会弹出toast提示“参数为空，请先初始化”
+* 若未安装游戏盒，则出现提示下载游戏盒的弹窗
+*/
+mOpeCenter.showGameForum(MainActivity.this);
+
+```
+
