@@ -164,6 +164,11 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
             android:screenOrientation="behind"
             android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen">
         </activity>
+		<activity
+            android:name="cn.m4399.operate.ui.activity.CaptchaActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen" />
 
         <!--------以下为第三方支付SDK Activity&Service配置------------>
          <activity
