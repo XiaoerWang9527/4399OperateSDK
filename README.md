@@ -1,7 +1,11 @@
 ﻿4399运营SDK 接入说明
 ==============
 # SDK下载
+<<<<<<< HEAD
 * [v2.24.0.5](https://github.com/4399SDKDev/4399OperateSDK/archive/v2.24.0.5.zip) (__2019-02-18__) [更新日志](/Document/VersionLog.md)
+=======
+* [v2.24.0.4](https://github.com/4399SDKDev/4399OperateSDK/archive/v2.24.0.4.zip) (__2019-01-31__) [更新日志](/Document/VersionLog.md)
+>>>>>>> parent of c09284f... fixBug：
 
 # 接入文档
 [Android SDK客户端接入说明文档](https://github.com/4399SDKDev/4399OperateSDK/blob/master/Document/ClientDocument.md)   
