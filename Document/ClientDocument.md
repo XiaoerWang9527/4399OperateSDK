@@ -22,6 +22,7 @@ v2.6.0.4 |  2015-10-30	|   张生    |   增加微信接入的说明
 v2.7.0.2 |  2016-01-20  |   张生    |   为新渠道‘优易付’修改接入流程   
 v2.7.1.0 |  2016-05-12  |   张生    |   移除AndroidManifest里launchMode配置  
 v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，和proguard配置  
+v2.25.0.1 |  2019-04-15  |   涂仕聪    |   修改AndroidManifest
 
 # 目录
 
@@ -90,132 +91,148 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
 - 添加SDK所需的权限
 ``` xml
     <!-- Common permission -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- For Dial 4399 hotline -->
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- SMS pay permission -->
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- YouYiFu permission -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-permission android:name="android.permission.WRITE_SMS"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 ```
 - 注册SDK相关Activity&Service，注意必须放入`<application>`元素区块内
 ```xml
-	<!--6.0系统授权辅助Actiivty-->
-        <activity
-            android:name="cn.m4399.common.permission.AuthActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="behind"
-            android:multiprocess="false"
-            android:theme="@style/m4399ActivityTheme"/>
-            
-        <!-- For 4399 recharging SDK. 请不要在此处修改RechargeActivity的方向设置，因为某些2。3的机型启动Activity总是先启动
-          	竖屏，然后强制转换成横屏，这会导致潜在问题. -->
-        <!-- activity的配置不能少于orientation|screenSize|keyboardHidden，这些配置是为了防止Activity被系统或第三方界面强  
-        	拉成竖屏时，发生重建而加入的。SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，否则会包初始化问题 -->
-            
-                <!-- For 4399 recharging SDK. -->
-        <activity
-            android:name="cn.m4399.recharge.ui.activity.RechargeActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen"
-            android:screenOrientation="behind">
-        </activity>
+	 <application
+        android:networkSecurityConfig="@xml/m4399_network_policy"
+        android:allowBackup="false"
+        android:icon="@drawable/m4399_demo_ico"
+        android:label="@string/m4399_demo_app_name"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
 
-        <!-- For 4399 Operation SDK -->
-        <activity
-            android:name="cn.m4399.operate.ui.activity.LoginActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="behind"
-            android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen"/>
-        <activity
-            android:name="cn.m4399.operate.ui.activity.UserCenterActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="behind"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:hardwareAccelerated="false">
-            <intent-filter>
-                <action android:name="cn.m4399.sdk.action.USER_CENTER"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="cn.m4399.operate.ui.activity.CustomWebActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="behind"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-
-        <activity
-            android:name="cn.m4399.operate.ui.activity.CommonActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="behind"
-            android:theme="@style/m4399ActivityTheme">
-        </activity>
-        <activity
-            android:name="cn.m4399.operate.ui.activity.GetActivationCodeActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="behind"
-            android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen">
-        </activity>
-		<activity
-            android:name="cn.m4399.operate.ui.activity.CaptchaActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="behind"
-            android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen" />
-
-        <!--------以下为第三方支付SDK Activity&Service配置------------>
-         <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-            android:exported="false"
-            android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden">
-        </activity>
-
-        <!-- For YouYiFu -->
-          <activity
-            android:name="com.arcsoft.hpay100.HPaySdkActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
-            android:screenOrientation="behind"
-            android:theme="@style/android:Theme.Translucent.NoTitleBar.Fullscreen">
-        </activity>
-        <activity
-            android:name="com.arcsoft.hpay100.web.HPayWebActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
-            android:screenOrientation="behind"
-            android:theme="@style/hpay_custom_confim_dialog">
-        </activity>
-        <activity
-            android:name="com.arcsoft.hpay100.web.HPayWebFullActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
-            android:screenOrientation="behind">
-        </activity>
-```
-* 注：第三方支付SDK的Activity需在AndroidManifest.xml中强制配置横竖屏，请游戏方根据游戏的横竖屏要求手工配置`landscape`|`portrait`  
-* 游戏Activity的配置不能少于orientation|screenSize|keyboardHidden这三项，这些配置是为了防止Activity被系统或第三方界面强
-        拉成竖屏时，发生重建而加入的。因为Activity重建有可能会因为某些初始化不全，发生crash。  
-* SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，缺少orientation|screenSize|keyboardHidden有可能发生初始化问题。
-
-
-- 兼容7.0+ 避免安装更新崩溃，注意必须放入`<application>`元素区块内
-```xml
+        <!--  兼容7.0+ 安装更新崩溃的bug
+        android:authorities="游戏包名.FileProvider"-->
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="游戏包名.FileProvider"
+            android:authorities="cn.m4399.game.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/m4399_ope_file_paths" />
         </provider>
+
+        <!--
+             activity的配置不能少于orientation|screenSize|keyboardHidden，这些配置是为了防止Activity被系统或第三方界面强
+            拉成竖屏时，发生重建而加入的。SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，否则会包初始化问题
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/m4399_demo_app_name"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.m4399.common.permission.AuthActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:multiprocess="false"
+            android:screenOrientation="behind"
+            android:theme="@style/m4399ActivityTheme" />
+
+        <!-- For 4399 recharging SDK. -->
+        <activity
+            android:name="cn.m4399.recharge.ui.activity.RechargeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@style/m4399TranslucentFullscreenActivityTheme"/>
+
+        <!-- For 4399 Operation SDK -->
+        <activity
+            android:name="cn.m4399.operate.ui.activity.LoginActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@style/m4399TranslucentFullscreenActivityTheme" />
+        <activity
+            android:name="cn.m4399.operate.ui.activity.UserCenterActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="behind"
+            android:theme="@style/m4399TranslucentFullscreenActivityTheme">
+            <intent-filter>
+                <action android:name="cn.m4399.sdk.action.USER_CENTER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.m4399.operate.ui.activity.CustomWebActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@style/m4399TranslucentFullscreenActivityTheme" />
+
+        <activity
+            android:name="cn.m4399.operate.ui.activity.CommonActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@style/m4399TranslucentFullscreenActivityTheme"/>
+        <activity
+            android:name="cn.m4399.operate.ui.activity.GetActivationCodeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@style/m4399TranslucentFullscreenActivityTheme"/>
+
+        <!-- For AliPay SDK -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <!-- For YouYiFu -->
+        <activity
+            android:name="com.arcsoft.hpay100.HPaySdkActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity
+            android:name="com.arcsoft.hpay100.web.HPayWebActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:screenOrientation="behind"
+            android:theme="@style/hpay_custom_confim_dialog"/>
+        <activity
+            android:name="com.arcsoft.hpay100.web.HPayWebFullActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:screenOrientation="behind"/>
+        <activity
+            android:name="cn.m4399.operate.ui.activity.CaptchaActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <!-- meta-data android:name="FTNN_FLAG_ENABLE_CHANNEL" android:value="true"></meta-data -->
+    </application>
 ```
+* 注：第三方支付SDK的Activity需在AndroidManifest.xml中强制配置横竖屏，请游戏方根据游戏的横竖屏要求手工配置`landscape`|`portrait`  
+* 游戏Activity的配置不能少于orientation|screenSize|keyboardHidden这三项，这些配置是为了防止Activity被系统或第三方界面强
+        拉成竖屏时，发生重建而加入的。因为Activity重建有可能会因为某些初始化不全，发生crash。  
+* SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，缺少orientation|screenSize|keyboardHidden有可能发生初始化问题。
 
 ### 代码混淆配置
 如果游戏有需要进行代码混淆，请不要混淆联编的jar包下的类，可以在`proguard.cfg`文件里追加以下配置

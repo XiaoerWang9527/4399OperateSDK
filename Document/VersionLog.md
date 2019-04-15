@@ -2,6 +2,12 @@
 
 ----
 
+## v2.25.0.1
+
+* 新增Android8.0权限REQUEST_INSTALL_PACKAGES
+* 修复已知问题
+
+
 ## v2.25.0.0
 
 * 数据请求方式改成https
