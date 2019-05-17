@@ -2,6 +2,10 @@
 
 ----
 
+## v2.25.0.2
+
+* 修复demo由于资源引用问题带来的奔溃
+
 ## v2.25.0.1
 
 * 新增Android8.0权限REQUEST_INSTALL_PACKAGES
