@@ -246,6 +246,7 @@ v2.25.0.1 |  2019-04-15  |   涂仕聪    |   修改AndroidManifest
 -keep class com.arcsoft.hpay100.**{*;}
 -keep class cn.m4399.operate.** {*;}
 -keep class cn.m4399.recharge.** {*;}
+-keep class com.m4399.gamecenter.** {*;}
 -dontwarn cn.m4399.operate.**
 -dontwarn cn.m4399.recharge.**
 -keepclassmembers class cn.m4399.recharge.R$* {*;}
