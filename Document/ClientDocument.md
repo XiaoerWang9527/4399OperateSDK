@@ -24,6 +24,7 @@ v2.7.1.0 |  2016-05-12  |   张生    |   移除AndroidManifest里launchMode配�
 v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，和proguard配置  
 v2.25.0.1 |  2019-04-15  |   涂仕聪    |   修改AndroidManifest
 v2.25.0.2 |  2019-06-17  |   张生    |   增加服务器ID规范的说明
+v2.26.0.0 |  2019-06-17  |   涂仕聪    |   删除权限并修改文档错误
 
 # 目录
 
@@ -62,7 +63,7 @@ v2.25.0.2 |  2019-06-17  |   张生    |   增加服务器ID规范的说明
 
 ## 开发包内容
  - m4399OperateSDKDemo.apk：当前版本SDK Demo 的APK包
- - m4399RechargeSDK：SDK资源文件工程内含SDK jar包
+ - m4399OperateSDK：SDK资源文件工程内含SDK jar包
  - m4399OperateSDKDemo工程：Demo工程  
  - release-note.txt：当前版本主要更新点，接入流程的变化或接入注意事项
 
@@ -97,8 +98,7 @@ v2.25.0.2 |  2019-06-17  |   张生    |   增加服务器ID规范的说明
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- For Dial 4399 hotline -->
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <!-- SMS pay permission -->
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
