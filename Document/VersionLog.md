@@ -2,6 +2,11 @@
 
 ----
 
+## v2.26.0.1
+
+* 游戏盒跳转新增game_key字段
+* 不混淆jar包里面的WechatLoginHandler类
+
 ## v2.26.0.0
 
 * 不混淆游戏盒aidl
