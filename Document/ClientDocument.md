@@ -227,13 +227,15 @@ v2.26.0.0 |  2019-06-17  |   涂仕聪    |   删除权限并修改文档错误
             android:screenOrientation="behind"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
 
+	<!-- 渠道开关-->
         <!-- meta-data android:name="FTNN_FLAG_ENABLE_CHANNEL" android:value="true"></meta-data -->
     </application>
 ```
 * 注：第三方支付SDK的Activity需在AndroidManifest.xml中强制配置横竖屏，请游戏方根据游戏的横竖屏要求手工配置`landscape`|`portrait`  
 * 游戏Activity的配置不能少于orientation|screenSize|keyboardHidden这三项，这些配置是为了防止Activity被系统或第三方界面强
         拉成竖屏时，发生重建而加入的。因为Activity重建有可能会因为某些初始化不全，发生crash。  
-* SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，缺少orientation|screenSize|keyboardHidden有可能发生初始化问题。
+* SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，缺少orientation|screenSize|keyboardHidden有可能发生初始化问题。  
+* 关于渠道开关：接入4399SDK的游戏，又希望在多个渠道投放apk，可以打开Manifest中的开关，并且联系运营使用专用打包工具打入渠道标识，但不需要游戏再针对每个渠道单独打包；如果不需渠道标识，请勿打开开关，否则会增加SDK初始化时间。
 
 ### 代码混淆配置
 如果游戏有需要进行代码混淆，请不要混淆联编的jar包下的类，可以在`proguard.cfg`文件里追加以下配置
