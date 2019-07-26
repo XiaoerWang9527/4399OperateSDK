@@ -25,6 +25,7 @@ v2.8.0.2 |  2016-06-30  |   张生    |   更新AndroidManifest组件配置，�
 v2.25.0.1 |  2019-04-15  |   涂仕聪    |   修改AndroidManifest
 v2.25.0.2 |  2019-06-17  |   张生    |   增加服务器ID规范的说明
 v2.26.0.0 |  2019-06-17  |   涂仕聪    |   删除权限并修改文档错误
+v2.26.0.8 |  2019-07-29  |   涂仕聪    |   修改AndroidManifest里的FileProvider
 
 # 目录
 
@@ -125,8 +126,8 @@ v2.26.0.0 |  2019-06-17  |   涂仕聪    |   删除权限并修改文档错误
         <!--  兼容7.0+ 安装更新崩溃的bug
         android:authorities="游戏包名.FileProvider"-->
         <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="cn.m4399.game.FileProvider"
+            android:name="cn.m4399.operate.OpeFileProvider"
+            android:authorities="cn.m4399.game.operate.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -141,8 +142,7 @@ v2.26.0.0 |  2019-06-17  |   涂仕聪    |   删除权限并修改文档错误
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/m4399_demo_app_name"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+            android:label="@string/m4399_demo_app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
