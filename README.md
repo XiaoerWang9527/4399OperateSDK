@@ -2,7 +2,7 @@
 ==============
 # SDK下载
 
-* [v2.26.0.8](https://github.com/4399SDKDev/4399OperateSDK/archive/v2.26.0.8.zip) (__2019-07-26__) [更新日志](/Document/VersionLog.md)
+* [v2.27.0.0](https://github.com/4399SDKDev/4399OperateSDK/archive/v2.27.0.0.zip) (__2019-08-16__) [更新日志](/Document/VersionLog.md)
 
 # 接入文档
 [Android SDK客户端接入说明文档](https://github.com/4399SDKDev/4399OperateSDK/blob/master/Document/ClientDocument.md)   

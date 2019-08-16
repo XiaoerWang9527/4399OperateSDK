@@ -227,8 +227,6 @@ v2.26.0.8 |  2019-07-29  |   涂仕聪    |   修改AndroidManifest里的FilePro
             android:screenOrientation="behind"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
 
-	<!-- 渠道开关-->
-        <!-- meta-data android:name="FTNN_FLAG_ENABLE_CHANNEL" android:value="true"></meta-data -->
     </application>
 ```
 * 注：第三方支付SDK的Activity需在AndroidManifest.xml中强制配置横竖屏，请游戏方根据游戏的横竖屏要求手工配置`landscape`|`portrait`  
