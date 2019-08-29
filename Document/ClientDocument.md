@@ -123,8 +123,7 @@ v2.26.0.8 |  2019-07-29  |   涂仕聪    |   修改AndroidManifest里的FilePro
             android:name="org.apache.http.legacy"
             android:required="false"/>
 
-        <!--  兼容7.0+ 安装更新崩溃的bug
-        android:authorities="游戏包名.operate.FileProvider"-->
+        <!--  兼容7.0+ 文件访问权限变更 android:authorities="游戏包名.operate.FileProvider"-->
         <provider
             android:name="cn.m4399.operate.OpeFileProvider"
             android:authorities="{APP_PACKAGE_NAME}.operate.FileProvider"
