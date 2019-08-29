@@ -127,7 +127,7 @@ v2.26.0.8 |  2019-07-29  |   涂仕聪    |   修改AndroidManifest里的FilePro
         android:authorities="游戏包名.operate.FileProvider"-->
         <provider
             android:name="cn.m4399.operate.OpeFileProvider"
-            android:authorities="cn.m4399.game.operate.FileProvider"
+            android:authorities="{APP_PACKAGE_NAME}.operate.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
