@@ -26,6 +26,7 @@ v2.25.0.1 |  2019-04-15  |   涂仕聪    |   修改AndroidManifest
 v2.25.0.2 |  2019-06-17  |   张生    |   增加服务器ID规范的说明
 v2.26.0.0 |  2019-06-17  |   涂仕聪    |   删除权限并修改文档错误
 v2.26.0.8 |  2019-07-29  |   涂仕聪    |   修改AndroidManifest里的FileProvider
+v2.28.0.0 |  2019-09-17  |   涂仕聪    |   提供实名认证入口
 
 # 目录
 
@@ -437,6 +438,16 @@ mOpeCenter.recharge(MainActivity.this,
 - 充值审核模式可以在后台配置，具体请咨询相关运营人员  
 - 充值审核模式下，没有正常的充值界面，充值渠道与参数都是固定的  
 
+## 实名认证
+当用户需要实名认证时，可调用本接口启动实名认证界面。  
+```java
+ mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() {
+                @Override
+                public void onAuthSuccess() {
+			//身份认证成功，并且是成年人
+                }
+            });
+```
 
 ## 获取SDK版本号
 ```java
