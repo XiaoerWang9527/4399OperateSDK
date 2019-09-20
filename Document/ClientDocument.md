@@ -252,6 +252,8 @@ v2.28.0.0 |  2019-09-17  |   涂仕聪    |   提供实名认证入口
 -dontwarn cn.m4399.recharge.**
 -keepclassmembers class cn.m4399.recharge.R$* {*;}
 -dontskipnonpubliclibraryclassmembers
+-dontwarn android.net.**
+-keep class android.net.SSLCertificateSocketFactory{*;}
 ```
 # 接入流程
 ## 初始化
@@ -441,12 +443,13 @@ mOpeCenter.recharge(MainActivity.this,
 ## 实名认证
 当用户需要实名认证时，可调用本接口启动实名认证界面。  
 ```java
- mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() {
-                @Override
-                public void onAuthSuccess() {
-			//身份认证成功，并且是成年人
-                }
-            });
+mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() {
+            @Override
+            public void onAuthSuccess(int idCardState) {
+		// idCardState :0:没有身份认证; 1:小于8岁; 2:大于8岁小于18岁;3:大于18岁;4;假身份(格式符合要求的身份证)
+                Toast.makeText(MainActivity.this, "name auth success , idCardState: " + idCardState, Toast.LENGTH_SHORT).show();
+            }
+        });
 ```
 
 ## 获取SDK版本号
