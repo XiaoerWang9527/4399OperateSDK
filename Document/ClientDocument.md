@@ -80,13 +80,13 @@ v2.28.0.0 |  2019-09-17  |   涂仕聪    |   提供实名认证入口
 假设现在你的工程目录名字叫project，下面将具体介绍如何将SDK接入project中。
 
 ### 关联资源工程  
-* 将m4399RechargeSDK导入到eclipse中
-* 右键点击m4399RechargeSDK工程名→Properties→Android
+* 将m4399OperateSDK导入到eclipse中
+* 右键点击m4399OperateSDK工程名→Properties→Android
 * 勾选Is Library→OK
 * 右键点击project工程名→Properties→Add
-* 在弹出的对话框中点选资源工程m4399RechargeSDK→OK  
+* 在弹出的对话框中点选资源工程m4399OperateSDK→OK  
 
-若游戏仅支持部分指令集，需要在引入资源工程后将`m4399RechargeSDK/lib`目录下未使用的指令集文件夹删除。如游戏仅支持arm6（armeabi），即可将其余的x86、arm64-v8a、armeabi-v7a文件夹删除。
+若游戏仅支持部分指令集，需要在引入资源工程后将`m4399OperateSDK/lib`目录下未使用的指令集文件夹删除。如游戏仅支持arm6（armeabi），即可将其余的x86、arm64-v8a、armeabi-v7a文件夹删除。
 
 ### 拷贝安全支付组件
 将m4399OperateSDKDemo工程下assets目录中的m4399SecurityIab.apk拷贝到游戏工程assets目录里  
