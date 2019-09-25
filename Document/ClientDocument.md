@@ -340,6 +340,89 @@ SDK会自动识别用户手机中是否安装了新版的4399游戏盒1.4.1以�
 
 *注：登录后如果未注销，登录状态将一直保持直至登录凭证过期或失效（若用户修改平台账户密码，所有游戏授权凭证将失效，需重新登录）。建议游戏在初始化完成后调用[登录状态查询](#登录状态查询)接口查询用户当前登录状态。*
 
+## User类内部方法含义说明
+```java
+    /**
+     * Description: 获取UID
+     */
+    public String getUid() {
+        if (SDKEnvironment.getInstance().getGameInfo() != null && SDKEnvironment.getInstance().getGameInfo().fromGuangZhou())
+            return suid;
+
+        return uid;
+    }
+
+    /**
+     * Description: 若是广州的SDK则返回suid，若不是返回空字符串
+     */
+    protected String getSuid() {
+        return suid;
+    }
+
+    /**
+     * Description: 获取用户名
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Description: 获取昵称
+     */
+    public String getNick() {
+        return nick;
+    }
+
+    /**
+     * Description: 获取登录凭证
+     */
+    public String getState() {
+        return state;
+    }
+
+    /**
+     * Description: 是否有激活码
+     */
+    public boolean isActivated() {
+        return activated;
+    }
+
+    /**
+     * Description: 是否通过实名认证(需要服务端打开开关，主要用于SDK内部校验) true:通过，false：不通过
+     */
+    public boolean isIdChecked() {
+        return idChecked;
+    }
+
+    /**
+     * Description: 是否通过实名认证(开发者判断是否实名认证使用这个字段) true:通过，false：不通过
+     */
+    public boolean isIdCheckedReal() {
+        return idCheckedReal;
+    }
+
+    /**
+     * Description: 开启 1 已绑定手机 2 未绑定 未开启 3 已绑定手机 4 未绑定
+     */
+    public int getPhoneBound() {
+        return phoneBound;
+    }
+
+    /**
+     * Description: vip_state 0没有VIP  1有VIP但是不弹窗  2有VIP并且弹窗
+     */
+    public int getVipState() {
+        return vipState;
+    }
+
+    /**
+     * Description: 是否成年 0 没填，1 小于8岁，2 小于18岁，3 大于18岁，4 假身份
+     */
+    public int getIdCardState() {
+        return vipState;
+    }
+```
+
 ## 获取当前登录用户信息
 在SDK处于登录状态时，可通过该接口获取当前用户的信息（`UID`、`用户名`、`昵称`、`登录凭证`）。
 
