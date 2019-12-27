@@ -535,6 +535,7 @@ mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() 
 
 	    @Override
             public void onCancel() {
+	    	//关闭实名认证弹窗回调
                 Toast.makeText(MainActivity.this, "name auth onCancel", Toast.LENGTH_SHORT).show();
             }
         });
