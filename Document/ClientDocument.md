@@ -252,6 +252,7 @@ v2.29.0.0 |  2019-11-01  |   涂仕聪    |   android Q兼容
 -dontskipnonpubliclibraryclassmembers
 -dontwarn android.net.**
 -keep class android.net.SSLCertificateSocketFactory{*;}
+-keep class com.ishumei.** { *; }
 ```
 # 接入流程
 ## 初始化
