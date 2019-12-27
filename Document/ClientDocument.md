@@ -532,6 +532,11 @@ mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() 
 		// idCardState :0:没有身份认证; 1:小于8岁; 2:大于8岁小于18岁;3:大于18岁;4;假身份(格式符合要求的身份证)
                 Toast.makeText(MainActivity.this, "name auth success , idCardState: " + idCardState, Toast.LENGTH_SHORT).show();
             }
+
+	    @Override
+            public void onCancel() {
+                Toast.makeText(MainActivity.this, "name auth onCancel", Toast.LENGTH_SHORT).show();
+            }
         });
 ```
 
