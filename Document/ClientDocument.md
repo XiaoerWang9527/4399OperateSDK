@@ -415,7 +415,8 @@ SDK会自动识别用户手机中是否安装了新版的4399游戏盒1.4.1以�
     }
 
     /**
-     * Description: 是否成年 0 没填，1 小于8岁，2 小于18岁，3 大于18岁，4 假身份
+     * Description: v2.30.0.28及之前版本， 0 未实名，1 小于8岁，2 小于18岁，3、4 18岁及以上
+     *		    v2.30.0.28之后版本， 0 未实名，1 小于8岁，2 8-15岁，3、4 18岁及以上，5 16-17岁	
      */
     public int getIdCardState() {
         return idCardState;
@@ -529,7 +530,10 @@ mOpeCenter.recharge(MainActivity.this,
 mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() {
             @Override
             public void onAuthSuccess(int idCardState) {
-		// idCardState :0:没有身份认证; 1:小于8岁; 2:大于8岁小于18岁;3:大于18岁;4;假身份(格式符合要求的身份证)
+	    	/**
+     		* idCardState: v2.30.0.28及之前版本， 0 未实名，1 小于8岁，2 小于18岁，3、4 18岁及以上
+     		*	       v2.30.0.28之后版本， 0 未实名，1 小于8岁，2 8-15岁，3、4 18岁及以上，5 16-17岁	
+     		*/
                 Toast.makeText(MainActivity.this, "name auth success , idCardState: " + idCardState, Toast.LENGTH_SHORT).show();
             }
 
