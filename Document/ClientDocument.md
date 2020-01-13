@@ -525,7 +525,13 @@ mOpeCenter.recharge(MainActivity.this,
 - 充值审核模式下，没有正常的充值界面，充值渠道与参数都是固定的  
 
 ## 实名认证
-当用户需要实名认证时，可调用本接口启动实名认证界面。  
+- 当用户需要实名认证时，可调用本接口启动实名认证界面。 
+
+- 接口说明：当用户需要实名认证时，可调用本接口启动实名认证界面。
+
+- 使用场景举例：可用于游戏内“有奖实名”类的功能支持，通过接口可返回确认用户是否实名，从而进行相关的游戏操作。
+
+- 注意：本接口主要为游戏功能提供支持，防沉迷功能由SDK内部实现，不需要调用其他方法。
 ```java
 mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() {
             @Override
