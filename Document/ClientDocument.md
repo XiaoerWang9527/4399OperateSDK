@@ -28,6 +28,7 @@ v2.26.0.0 |  2019-06-17  |   涂仕聪    |   删除权限并修改文档错误
 v2.26.0.8 |  2019-07-29  |   涂仕聪    |   修改AndroidManifest里的FileProvider
 v2.28.0.0 |  2019-09-17  |   涂仕聪    |   提供实名认证入口
 v2.29.0.0 |  2019-11-01  |   涂仕聪    |   android Q兼容
+v2.31.0.4 |  2020-04-02  |   涂仕聪    |   修改混淆和AndroidManifest
 
 # 目录
 
@@ -225,6 +226,31 @@ v2.29.0.0 |  2019-11-01  |   涂仕聪    |   android Q兼容
             android:screenOrientation="behind"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
 
+	<!-- 一键登录 -->
+        <!-- 注意！ 电信/移动一键登录Activity，需要根据游戏在此实际横竖屏方向设置方向 -->
+        <activity
+            android:name="cn.com.chinatelecom.account.sdk.ui.AuthActivity"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+
+        <!-- 注意！ 电信/移动一键登录Activity，需要根据游戏在此实际横竖屏方向设置方向 -->
+        <activity
+            android:name="cn.com.chinatelecom.account.sdk.ui.PrivacyWebviewActivity"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="cn.m4399.operate.control.onekey.wo.WoLoginActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name="cn.m4399.operate.control.onekey.wo.WoPrivacyContentActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+
     </application>
 ```
 * 注：第三方支付SDK的Activity需在AndroidManifest.xml中强制配置横竖屏，请游戏方根据游戏的横竖屏要求手工配置`landscape`|`portrait`  
@@ -253,6 +279,14 @@ v2.29.0.0 |  2019-11-01  |   涂仕聪    |   android Q兼容
 -dontwarn android.net.**
 -keep class android.net.SSLCertificateSocketFactory{*;}
 -keep class com.ishumei.** { *; }
+
+# Quick Login SDK
+-keeppackagenames cn.m4399.operate.control.onekey.api
+-keep class cn.m4399.operate.control.onekey.api.** {*;}
+# 3rd SDK
+-keep class cn.com.chinatelecom.account.** {*;}
+-dontwarn com.unicom.xiaowo.account.shield.**
+-keep class com.unicom.xiaowo.account.shield.**{*;}
 ```
 # 接入流程
 ## 初始化
