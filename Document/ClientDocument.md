@@ -449,7 +449,8 @@ SDK会自动识别用户手机中是否安装了新版的4399游戏盒1.4.1以�
     }
 
     /**
-     * Description: 是否成年 0 没填，1 小于8岁，2 小于18岁，3 大于18岁，4 假身份
+     * Description: v2.30.0.28及之前版本， 0 未实名，1 小于8岁，2 小于18岁，3、4 18岁及以上
+     *		    v2.30.0.28之后版本， 0 未实名，1 小于8岁，2 8-15岁，3、4 18岁及以上，5 16-17岁	
      */
     public int getIdCardState() {
         return idCardState;
@@ -558,17 +559,27 @@ mOpeCenter.recharge(MainActivity.this,
 - 充值审核模式下，没有正常的充值界面，充值渠道与参数都是固定的  
 
 ## 实名认证
-当用户需要实名认证时，可调用本接口启动实名认证界面。  
+- 当用户需要实名认证时，可调用本接口启动实名认证界面。 
+
+- 接口说明：当用户需要实名认证时，可调用本接口启动实名认证界面。
+
+- 使用场景举例：可用于游戏内“有奖实名”类的功能支持，通过接口可返回确认用户是否实名，从而进行相关的游戏操作。
+
+- 注意：本接口主要为游戏功能提供支持，防沉迷功能由SDK内部实现，不需要调用其他方法。
 ```java
 mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() {
             @Override
             public void onAuthSuccess(int idCardState) {
-		// idCardState :0:没有身份认证; 1:小于8岁; 2:大于8岁小于18岁;3:大于18岁;4;假身份(格式符合要求的身份证)
+	    	/**
+     		* idCardState: v2.30.0.28及之前版本， 0 未实名，1 小于8岁，2 小于18岁，3、4 18岁及以上
+     		*	       v2.30.0.28之后版本， 0 未实名，1 小于8岁，2 8-15岁，3、4 18岁及以上，5 16-17岁	
+     		*/
                 Toast.makeText(MainActivity.this, "name auth success , idCardState: " + idCardState, Toast.LENGTH_SHORT).show();
             }
 
 	    @Override
             public void onCancel() {
+	    	//关闭实名认证弹窗回调
                 Toast.makeText(MainActivity.this, "name auth onCancel", Toast.LENGTH_SHORT).show();
             }
         });
