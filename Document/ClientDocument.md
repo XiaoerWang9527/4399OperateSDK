@@ -280,9 +280,6 @@ v2.31.0.6 |  2020-04-03  |   涂仕聪    |   修改混淆和AndroidManifest
 -keep class android.net.SSLCertificateSocketFactory{*;}
 -keep class com.ishumei.** { *; }
 
-# Quick Login SDK
--keeppackagenames cn.m4399.operate.control.onekey.api
--keep class cn.m4399.operate.control.onekey.api.** {*;}
 # 3rd SDK
 -keep class cn.com.chinatelecom.account.** {*;}
 -dontwarn com.unicom.xiaowo.account.shield.**
