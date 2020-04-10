@@ -244,11 +244,13 @@ v2.31.0.6 |  2020-04-03  |   涂仕聪    |   修改混淆和AndroidManifest
         <activity
             android:name="cn.m4399.operate.control.onekey.wo.WoLoginActivity"
             android:exported="false"
+	    android:screenOrientation="behind"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
 
         <activity
             android:name="cn.m4399.operate.control.onekey.wo.WoPrivacyContentActivity"
             android:exported="false"
+	    android:screenOrientation="behind"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
 
     </application>
