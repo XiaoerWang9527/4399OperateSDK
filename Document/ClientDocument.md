@@ -55,9 +55,16 @@ v2.31.0.6 |  2020-04-03  |   涂仕聪    |   修改混淆和AndroidManifest
 &nbsp;&nbsp;&nbsp;&nbsp;[3.10 设置用户所在服务器ID【必接】](#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E6%89%80%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8id)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.11 检查更新](#检查更新)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.12 充值【必接】](#充值)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.13 获取SDK版本号](#获取SDK版本号)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.14 获取状态信息](#获取状态信息)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.15 析构【必接】](#析构)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.13 实名认证](#实名认证)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.14 获取SDK版本号](#获取SDK版本号)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.15 获取状态信息](#获取状态信息)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.16 析构【必接】](#析构)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.17 绑定手机](#绑定手机)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.18 检查手机绑定状态](#检查手机绑定状态)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.19 跳转到游戏圈帖子详情页面](#跳转到游戏圈帖子详情页面)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.20 跳转到游戏评论页面](#跳转到游戏评论页面)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.21 跳转到游戏圈页面](#跳转到游戏圈页面)  
+[4 版本更新改动](#版本更新改动)  
 # 文档说明
 ## 功能描述
 4399运营SDK（以下简称：SDK）主要用来向第三方游戏开发者提供便捷、安全一级可靠的4399账户登录、多渠道充值付费、版本升级检测等功能。本文主要描述SDK接口的使用方法，供合作伙伴的开发者接入使用。
@@ -683,4 +690,6 @@ mOpeCenter.showGameCommentArea(MainActivity.this);
 mOpeCenter.showGameForum(MainActivity.this);
 
 ```
+# 版本更新改动
+本版本与上版本除lib改变之外，AndroidManifest.xml、混淆规则、assets目录均有改动，接入时请开发者稍微留意一下
 
