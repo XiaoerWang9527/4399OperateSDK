@@ -116,6 +116,11 @@ v2.31.0.6 |  2020-04-03  |   涂仕聪    |   修改混淆和AndroidManifest
     <!-- YouYiFu permission -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <!-- 一键登录 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!--suppress DeprecatedClassUsageInspection -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 ```
 - 注册SDK相关Activity&Service，注意必须放入`<application>`元素区块内
 ```xml
