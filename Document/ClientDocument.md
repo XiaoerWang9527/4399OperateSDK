@@ -210,6 +210,7 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
             android:theme="@style/m4399TranslucentFullscreenActivityTheme"/>
 
         <!-- For AliPay SDK -->
+	<!-- 注意！ 以下Activity属于第三方支付SDK，需要根据游戏在此实际横竖屏方向设置方向 -->
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
