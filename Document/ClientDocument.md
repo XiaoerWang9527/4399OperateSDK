@@ -289,7 +289,6 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 -keep class android.support.v4.** { *; }
 -keep public class * extends android.support.v4.**
 
-
 -keep class cn.m4399.operate.** {*;}
 -keep class cn.m4399.recharge.** {*;}
 -dontwarn cn.m4399.operate.**
@@ -705,5 +704,4 @@ mOpeCenter.showGameCommentArea(MainActivity.this);
 mOpeCenter.showGameForum(MainActivity.this);
 
 ```
-
 
