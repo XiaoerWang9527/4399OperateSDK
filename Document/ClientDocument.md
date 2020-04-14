@@ -89,6 +89,12 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 假设现在你的工程目录名字叫project，下面将具体介绍如何将SDK接入project中。
 
 ### 关联资源工程  
+
+#### Android Studio
+* 将m4399OperateSDK导入到Android Studio中
+* 游戏主module依赖m4399OperateSDK
+
+#### Eclipse
 * 将m4399OperateSDK导入到eclipse中
 * 右键点击m4399OperateSDK工程名→Properties→Android
 * 勾选Is Library→OK
@@ -96,9 +102,6 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 * 在弹出的对话框中点选资源工程m4399OperateSDK→OK  
 
 若游戏仅支持部分指令集，需要在引入资源工程后将`m4399OperateSDK/lib`目录下未使用的指令集文件夹删除。如游戏仅支持arm6（armeabi），即可将其余的x86、arm64-v8a、armeabi-v7a文件夹删除。
-
-### 拷贝安全支付组件
-将m4399OperateSDKDemo工程下assets目录中的m4399SecurityIab.apk拷贝到游戏工程assets目录里  
 
 ### 配置AndroidManifest.xml文件
 - 添加SDK所需的权限
@@ -124,13 +127,9 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 ```
 - 注册SDK相关Activity&Service，注意必须放入`<application>`元素区块内
 ```xml
-	 <application
+<application
         android:networkSecurityConfig="@xml/m4399_network_policy"
-        android:allowBackup="false"
-        android:icon="@drawable/m4399_demo_ico"
-        android:label="@string/m4399_demo_app_name"
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
+        android:allowBackup="false">
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false"/>
@@ -283,14 +282,17 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 -keep class android.support.v4.** { *; }
 -keep public class * extends android.support.v4.**
 
--dontwarn com.arcsoft.hpay100.**
--keep class com.arcsoft.hpay100.**{*;}
+
 -keep class cn.m4399.operate.** {*;}
 -keep class cn.m4399.recharge.** {*;}
--keep class com.m4399.gamecenter.** {*;}
 -dontwarn cn.m4399.operate.**
 -dontwarn cn.m4399.recharge.**
 -keepclassmembers class cn.m4399.recharge.R$* {*;}
+-keep class com.m4399.gamecenter.** {*;}
+
+-dontwarn com.arcsoft.hpay100.**
+-keep class com.arcsoft.hpay100.**{*;}
+
 -dontskipnonpubliclibraryclassmembers
 -dontwarn android.net.**
 -keep class android.net.SSLCertificateSocketFactory{*;}
@@ -516,14 +518,14 @@ mOpeCenter.shouldQuitGame(MainActivity.this, new OnQuitGameListener() {
 ```java
 boolean isLogin = mOpeCenter.isLogin();
 ```
-## 获取缓存用户名列表
-当使用网页方式登录时，系统会记忆最多5次登录的用户名, 用于下一次在登录界面提供用户候选（见于帐号名右边的下拉列表）。
+## 获取缓存账号名列表
+当使用网页方式登录时，系统会记忆最多5次登录的账号名（并非完整用户信息）, 用于网页登录时，下一次在登录界面提供用户候选（见于帐号名右边的下拉列表）。
 ```java
 String[] accounts = mOpeCenter.getCacheAccounts();
 ```
 
-## 删除缓存用户名
-当需要充缓存中删除已登录用户信息时，可调用该接口，删除历史登录用户信息。（最后一次登录用户无法删除）
+## 删除缓存账号名
+当需要充缓存中删除已登录用户信息时，可调用该接口，删除历史登录账号名。（最后一次登录账号无法删除）
 ```java
 mOpeCenter.removeCacheAccount("USER_NAME");
 ```
@@ -696,16 +698,5 @@ mOpeCenter.showGameCommentArea(MainActivity.this);
 mOpeCenter.showGameForum(MainActivity.this);
 
 ```
-# 版本更新改动
-本版本与上版本除lib改变之外，AndroidManifest.xml、混淆规则、assets目录均有改动，接入时请开发者稍微留意一下
 
-## AndroidManifest.xml：
-- 新增三个权限
-- 新增四个activity
-
-## 混淆规则：
-- 新增三句混淆配置
-
-## assets目录：
-- 新增assets目录下的jar包
 
