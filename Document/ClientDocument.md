@@ -101,7 +101,14 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 * 右键点击project工程名→Properties→Add
 * 在弹出的对话框中点选资源工程m4399OperateSDK→OK  
 
-若游戏仅支持部分指令集，需要在引入资源工程后将`m4399OperateSDK/lib`目录下未使用的指令集文件夹删除。如游戏仅支持arm6（armeabi），即可将其余的x86、arm64-v8a、armeabi-v7a文件夹删除。
+#### 注意
+##### so 对齐
+若游戏仅支持部分abi，应使SDK保持一致：
+- Android Studio：使用`abiFilters`过滤，选择需要的so
+- Eclipse 接入方式：需要在引入资源工程后将`m4399OperateSDK/lib`目录下未使用的指令集文件夹删除，如游戏仅支持arm6（armeabi），即可将其余的x86、arm64-v8a、armeabi-v7a文件夹删除。
+
+##### assets
+如果游戏使用Eclipse作为开发IDE，需要手动拷贝`uniaccount_classez.jar`到应用工程下
 
 ### 配置AndroidManifest.xml文件
 - 添加SDK所需的权限
