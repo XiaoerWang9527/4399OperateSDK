@@ -698,3 +698,13 @@ mOpeCenter.showGameForum(MainActivity.this);
 # 版本更新改动
 本版本与上版本除lib改变之外，AndroidManifest.xml、混淆规则、assets目录均有改动，接入时请开发者稍微留意一下
 
+## AndroidManifest.xml：
+- 新增三个权限
+- 新增四个activity
+
+## 混淆规则：
+- 新增三句混淆配置
+
+## assets目录：
+- 新增assets目录下的jar包
+
