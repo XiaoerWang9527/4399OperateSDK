@@ -95,7 +95,7 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 
 #### Eclipse
 * 将m4399OperateSDK导入到eclipse中
-* 拷贝`uniaccount_classez.jar`到应用工程下
+* 拷贝assets目录下的`uniaccount_classez.jar`到应用工程的assets目录下
 * 右键点击m4399OperateSDK工程名→Properties→Android
 * 勾选Is Library→OK
 * 右键点击project工程名→Properties→Add
