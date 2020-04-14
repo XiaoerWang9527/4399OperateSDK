@@ -267,7 +267,7 @@ v2.31.0.6 |  2020-04-03  |   涂仕聪    |   修改混淆和AndroidManifest
 
     </application>
 ```
-* 注：第三方支付SDK的Activity需在AndroidManifest.xml中强制配置横竖屏，请游戏方根据游戏的横竖屏要求手工配置`landscape`|`portrait`  
+* 注：第三方支付SDK与电信/移动一键登录的Activity需在AndroidManifest.xml中强制配置横竖屏，请游戏方根据游戏的横竖屏要求手工配置`landscape`|`portrait`  
 * 游戏Activity的配置不能少于orientation|screenSize|keyboardHidden这三项，这些配置是为了防止Activity被系统或第三方界面强
         拉成竖屏时，发生重建而加入的。因为Activity重建有可能会因为某些初始化不全，发生crash。  
 * SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，缺少orientation|screenSize|keyboardHidden有可能发生初始化问题。  
