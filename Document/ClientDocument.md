@@ -87,8 +87,8 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 2. jar包，增加一键登录依赖jar包：uniaccount_base_4.0.0.jar、CTAccountSdk_HY_v3.7.0_all.jar  
 3. 资源  
    3.1 assets 资源  
-      3.1.1 增加 uniaccount_classez.jar，如果游戏方是Eclipse方式接入，建议将文件放在主工程相应位置  
-      3.1.2 移除废弃的安全组件 m4399SecurityIab.apk（如果游戏仍然有此资源）  
+         3.1.1 增加 uniaccount_classez.jar，如果游戏方是Eclipse方式接入，建议将文件放在主工程相应位置  
+         3.1.2 移除废弃的安全组件 m4399SecurityIab.apk（如果游戏仍然有此资源）  
    3.2 一键登录相关资源，一般是ct_account_前缀的资源   
 
 # 集成流程
