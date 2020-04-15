@@ -77,6 +77,19 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
  - m4399OperateSDKDemo工程：Demo工程  
  - release-note.txt：当前版本主要更新点，接入流程的变化或接入注意事项
 
+## 版本更新内容
+1. AndroidManifest变更
+   1.1 权限注册增加一键登录所需权限
+   1.2 Activity增加一键登录所需，其中 AuthActivity、PrivacyWebviewActivity需要游戏方
+       根据游戏页面方向手动配置（第三方界面不支持代码统一配置）
+   1.3 混淆配置增加一键登录配置
+2. jar包，增加一键登录依赖jar包：uniaccount_base_4.0.0.jar、CTAccountSdk_HY_v3.7.0_all.jar
+3. 资源
+   3.1 assets 资源
+       3.1.1 增加 uniaccount_classez.jar，如果游戏方是Eclipse方式接入，建议将文件放在主工程相应位置
+       3.1.2 移除废弃的安全组件 m4399SecurityIab.apk（如果游戏仍然有此资源）
+   3.2 一键登录相关资源，一般是ct_account_前缀的资源 
+
 # 集成流程
 ## 接入前期准备
 1. 向4399运营人员提供游戏名称、游戏内货币名称、人民币与游戏币的兑换率
