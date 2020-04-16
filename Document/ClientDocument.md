@@ -37,7 +37,7 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 &nbsp;&nbsp;&nbsp;&nbsp;[1.2 阅读对象](#阅读对象)  
 &nbsp;&nbsp;&nbsp;&nbsp;[1.3 开发包内容](#开发包内容)  
 &nbsp;&nbsp;&nbsp;&nbsp;[1.4 版本更新内容](#版本更新内容)  
-&nbsp;&nbsp;&nbsp;&nbsp;[1.5 重要功能说明](#重要功能说明) 
+&nbsp;&nbsp;&nbsp;&nbsp;[1.5 重要功能说明](#重要功能说明)  
 [2 集成流程](#集成流程)  
 &nbsp;&nbsp;&nbsp;&nbsp;[2.1 接入前期准备](#接入前期准备)  
 &nbsp;&nbsp;&nbsp;&nbsp;[2.2 SDK集成流程](#SDK%E9%9B%86%E6%88%90%E6%B5%81%E7%A8%8B)  
