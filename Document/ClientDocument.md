@@ -45,9 +45,9 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.2.2 配置AndroidManifest.xml文件](#%E9%85%8D%E7%BD%AEandroidmanifestxml%E6%96%87%E4%BB%B6)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.2.3 代码混淆配置](#代码混淆配置)  
 [3 接入流程](#接入流程)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.1 初始化【必接】](#初始化与析构)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.2 登录状态查询](#登录状态查询)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.3 用户登录【必接】](#用户登录)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.1 初始化【必接】](#初始化)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.2 用户登录【必接】](#用户登录)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.3 登录状态查询](#登录状态查询) 
 &nbsp;&nbsp;&nbsp;&nbsp;[3.4 获取当前登录用户信息](#获取当前登录用户信息)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.5 User类内部方法含义说明](#User类内部方法含义说明)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.6 用户切换](#用户切换)  
@@ -416,6 +416,12 @@ SDK会自动识别用户手机中是否安装了新版的4399游戏盒1.4.1以�
 
 *注：登录后如果未注销，登录状态将一直保持直至登录凭证过期或失效（若用户修改平台账户密码，所有游戏授权凭证将失效，需重新登录）。建议游戏在初始化完成后调用[登录状态查询](#登录状态查询)接口查询用户当前登录状态。*
 
+## 登录状态查询
+查询当前客户端是否有账号登录
+```java
+boolean isLogin = mOpeCenter.isLogin();
+```
+
 ## 获取当前登录用户信息
 在SDK处于登录状态时，可通过该接口获取当前用户的信息（`UID`、`用户名`、`昵称`、`登录凭证`）。
 
@@ -520,12 +526,6 @@ mOpeCenter.shouldQuitGame(MainActivity.this, new OnQuitGameListener() {
 游戏退出时调用本接口，释放SDK资源以及保存相关数据。
 ```java
 mOpeCenter.destroy();
-```
-
-## 登录状态查询
-查询当前客户端是否有账号登录
-```java
-boolean isLogin = mOpeCenter.isLogin();
 ```
 ## 获取缓存账号名列表
 当使用网页方式登录时，系统会记忆最多5次登录的账号名（并非完整用户信息）, 用于网页登录时，下一次在登录界面提供用户候选（见于帐号名右边的下拉列表）。
