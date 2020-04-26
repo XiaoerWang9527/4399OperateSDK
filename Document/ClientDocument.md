@@ -522,7 +522,7 @@ mOpeCenter.shouldQuitGame(MainActivity.this, new OnQuitGameListener() {
 });
 ```
 
-## 退出游戏
+## 析构
 游戏退出时调用本接口，释放SDK资源以及保存相关数据。
 ```java
 mOpeCenter.destroy();
