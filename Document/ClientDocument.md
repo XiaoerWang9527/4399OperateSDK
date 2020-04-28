@@ -343,7 +343,6 @@ mOpeConfig = new OperateCenterConfig.Builder(this)
 	.setSupportExcess(true)     //设置服务端是否支持处理超出部分金额，默认为false
 	.setPopLogoStyle(PopLogoStyle.POPLOGOSTYLE_ONE) //设置悬浮窗样式，现有四种可选
 	.setPopWinPosition(PopWinPosition.POS_LEFT)	//设置悬浮窗默认显示位置，现有四种可选
-        .setSMEnable(true)	//设置数美开关，默认值为true，false为关闭状态
 	.build();
 mOpeCenter.setConfig(mOpeConfig);
 mOpeCenter.init(new OperateCenter.OnInitGloabListener() {
@@ -463,11 +462,9 @@ public final class User {
 
 - 该接口不可以在SDK登录回调中调用，否则会与防沉迷机制冲突。 
 
-- 接口说明：当用户需要实名认证时（User类中isIdCardEditable（）值为true），可调用本接口启动实名认证界面。
+- 使用场景举例：可用于游戏内“有奖实名”的功能支持，需要搭配游戏内部UI实现（User类中isIdCardEditable（）值为true显示UI，false隐藏），通过该UI的点击事件调用mOpeCenter.nameAuthentication接口。
 
-- 使用场景举例：可用于游戏内“有奖实名”类的功能支持，通过接口可返回确认用户是否实名，从而进行相关的游戏操作。
-
-- 注意：本接口主要为游戏功能提供支持，需要搭配游戏内部UI实现，防沉迷功能由SDK内部实现，不需要调用此方法，无此需求开发者请自行忽略。
+- 注意：本接口主要为游戏功能提供支持，防沉迷功能由SDK内部实现，不需要调用此方法，无此需求开发者请自行忽略。
 
 ```java
 mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() {
