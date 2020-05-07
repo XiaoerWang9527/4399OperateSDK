@@ -449,7 +449,7 @@ public final class User {
     }
 
     /**
-     * Description: 控制游戏中“实名认证”UI显示/隐藏 true:可调用实名认证接口，false：不可调用
+     * Description: 控制游戏中“实名认证”UI显示/隐藏 true:显示，false：隐藏
      *              idcardEditable字段已关联实名状态（有奖实名调用仅需这么一个判断就够了）
      */
     public boolean isIdCardEditable() {
