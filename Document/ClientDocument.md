@@ -157,8 +157,9 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 ```
 - 注册SDK相关Activity&Service，注意必须放入`<application>`元素区块内
 ```xml
+
+<!--  networkSecurityConfig：兼容Android 9.0/P http请求 如开发者target api低于Android P，可自行删除networkSecurityConfig配置项-->
 <application
-        <!--  兼容Android 9.0/P http请求 如开发者target api低于Android P，可自行删除networkSecurityConfig配置项-->
         android:networkSecurityConfig="@xml/m4399_network_policy"
         android:allowBackup="false">
 	<!--  兼容Android 9.0/P http请求 如开发者target api低于Android P，可自行删除uses-library配置项-->
