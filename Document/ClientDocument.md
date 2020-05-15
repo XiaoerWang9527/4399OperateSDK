@@ -356,7 +356,7 @@ mOpeCenter.init(new OperateCenter.OnInitGloabListener() {
 	// 注销帐号的回调， 包括个人中心里的注销和logout()注销方式
 	// fromUserCenter区分是否是从悬浮窗-个人中心("4399游戏助手页面")注销的，若是则为true，不是为false
 	@Override
-	public void onUserAccountLogout(boolean fromUserCenter, int resultCode) {
+	public void onUserAccountLogout(boolean fromUserCenter) {
 	}
 
  // 切换帐号的回调 
