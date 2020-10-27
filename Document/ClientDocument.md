@@ -671,3 +671,13 @@ mOpeCenter.showGameForum(MainActivity.this);
 
 ```
 
+## 跳转到游戏盒主页
+```java
+/**
+* 打开游戏盒主页面
+* 若未安装游戏盒，则出现提示下载游戏盒页面
+*/
+mOpeCenter.StartGameBox(MainActivity.this);
+
+```
+
