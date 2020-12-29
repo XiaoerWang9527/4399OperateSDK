@@ -111,6 +111,28 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 ### 配置AndroidManifest.xml文件
 - 添加SDK所需的权限
 ``` xml
+    <!-- Common permission -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- SMS pay permission -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- YouYiFu permission -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <!-- 一键登录 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!--suppress DeprecatedClassUsageInspection -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+```
+- 注册SDK相关Activity&Service，注意必须放入`<application>`元素区块内
+``` xml
     
 <!-- 
     4399 运营SDK： 游戏application要注意对 android 9.+ 系统的http请求的兼容配置，参考
