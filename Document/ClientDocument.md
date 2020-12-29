@@ -111,25 +111,28 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 ### 配置AndroidManifest.xml文件
 - 添加SDK所需的权限
 ``` xml
-    <!-- Common permission -->
+    <!--
+       4399 运营SDK：
+       以下是权限配置，包括第三方SDK需要的，以jar+res 方式接入需要打开以下内容，aar则不需
+    -->
+    <!-- 一般性权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <!-- SMS pay permission -->
+    <!-- 短代权限 -->
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- YouYiFu permission -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-
     <!-- 一键登录 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <!--suppress DeprecatedClassUsageInspection -->
     <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 ```
 - 注册SDK相关Activity&Service，注意必须放入`<application>`元素区块内
 ``` xml
