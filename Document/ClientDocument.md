@@ -469,15 +469,13 @@ String resultMessage = OperateCenter.getResultMsg(resultCode);
 * 4：未绑定，游戏关闭绑定功能（无需绑定） 
 *msg：绑定成功或失败的描述信息
 **/ 
-public void onBindPhoneBtnClicked(View view) {
-	mOpeCenter.bindPhone(this, new OnPhoneBindResultListener() {
+mOpeCenter.bindPhone(this, new OnPhoneBindResultListener() {
 	    @Override
 	    public void onPhoneBindResult(int resultCode, String msg) {
 		Log.v(TAG, "bindPhone resultCode=" + resultCode+",msg="+msg);
 		Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
 	    }
 	});
-}
 
 ```
 ## 检查手机绑定状态
@@ -495,15 +493,13 @@ public void onBindPhoneBtnClicked(View view) {
 * 4：游戏未开启绑定手机功能，用户未绑定手机号
 *msg：查询结果的描述信息
 **/ 
-    public void onCheckBindPhoneBtnClicked(View view) {
-        mOpeCenter.checkBindPhoneState(new OnCheckPhoneBindStateListener() {
+mOpeCenter.checkBindPhoneState(new OnCheckPhoneBindStateListener() {
             @Override
             public void onCheckPhoneBindState(int resultCode, String msg) {
                 Log.v(TAG, "check bindPhone resultCode=" + resultCode+",msg="+msg);
                 Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
             }
         });
-    }
 ```
 
 ## 跳转到游戏圈帖子详情页面
