@@ -458,9 +458,11 @@ String resultMessage = OperateCenter.getResultMsg(resultCode);
 /*
 *返回值：
 *resultCode：
-* -4：进程被系统/用户关闭
+* -4：进程被系统（或用户）关闭
 * -3：用户取消绑定
-* 0：用户未登录（无需绑定） 
+* -2：服务器异常
+* -1：网络异常
+* 0：用户未登录（或被踢出） 
 * 1：已绑定
 * 2：绑定成功
 * 3：已绑定，游戏关闭绑定功能（无需绑定） 
@@ -481,9 +483,9 @@ mOpeCenter.bindPhone(this, new OnPhoneBindResultListener() {
 *该接口为异步接口
 *返回值：
 *resultCode：
-* -2：非网络问题的检查绑定状态失败
-* -1：网络异常的检查绑定状态失败
-* 0：用户未登录
+* -2：服务器异常
+* -1：网络异常
+* 0：用户未登录（或被踢出） 
 * 1：游戏开启绑定手机功能，用户已绑定手机号
 * 2：游戏开启绑定手机功能，用户未绑定手机号
 * 3：游戏未开启绑定手机功能，用户已绑定手机号
@@ -495,7 +497,7 @@ mOpeCenter.checkBindPhoneState(new OnCheckPhoneBindStateListener() {
             public void onCheckPhoneBindState(int resultCode, String msg) {
                 Log.v(TAG, "check bindPhone resultCode=" + resultCode+",msg="+msg);
             }
-        });
+    });
 ```
 
 ## 跳转到游戏圈帖子详情页面
