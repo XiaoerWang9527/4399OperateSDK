@@ -383,16 +383,14 @@ mOpeCenter.logout();
 
 ## 游戏关闭
 ```java
-// 如果游戏已经配置游戏圈， 则在关闭前，SDK会弹出对话框询问“退出游戏”还是“前往游戏圈”
-// 如果还没有配置，SDK弹框会提示“退出游戏”还是“留在游戏”
+// 如果游戏已经配置游戏圈、攻略、礼包等功能弹窗内容区域会显示以上功能的相关item
+// 在关闭前，SDK会弹出对话框询问“退出游戏”还是“继续游戏”
 mOpeCenter.shouldQuitGame(MainActivity.this, new OnQuitGameListener() {
 	@Override
 	public void onQuitGame(boolean shouldQuit) {
 		// 点击“退出游戏”时，shouldQuit为true，游戏处理自己的退出业务逻辑
-		// 点击“前往游戏圈”时，shouldQuit为false，SDK会进入游戏圈或者下载
-		// 	游戏盒子界面，游戏可以不做处理。
-		// 点击“留在游戏”时，shouldQuit为false，SDK和游戏都不做任何处理
-        // 点击右上角的关闭图标，shouldQuit为false，SDK和游戏都不做任何处理
+		// 点击“游戏圈”内容区域时，SDK会进入游戏圈（攻略、礼包同上）
+		// 点击“继续游戏”时，shouldQuit为false，SDK和游戏都不做任何处理
         if (shouldQuit) {
             destroySDK();
             finish();//此方法需替换成游戏方退出游戏页面方法
@@ -473,7 +471,6 @@ mOpeCenter.bindPhone(this, new OnPhoneBindResultListener() {
 	    @Override
 	    public void onPhoneBindResult(int resultCode, String msg) {
 		Log.v(TAG, "bindPhone resultCode=" + resultCode+",msg="+msg);
-		Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
 	    }
 	});
 
@@ -497,7 +494,6 @@ mOpeCenter.checkBindPhoneState(new OnCheckPhoneBindStateListener() {
             @Override
             public void onCheckPhoneBindState(int resultCode, String msg) {
                 Log.v(TAG, "check bindPhone resultCode=" + resultCode+",msg="+msg);
-                Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
             }
         });
 ```
