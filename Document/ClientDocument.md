@@ -444,7 +444,7 @@ mOpeCenter.recharge(MainActivity.this,
 - 充值审核模式下，没有正常的充值界面，充值渠道与参数都是固定的  
 
 ## <span id = "获取SDK版本号">获取SDK版本号</span>
-示例：“2.36.0+183”，前面的是版本名，后面是版本号
+示例：“2.36.0.183”，2.36.0是版本名(versionName)，185是版本号(versionCode)
 ```java
 mOpeCenter.getVersion();
 ```
