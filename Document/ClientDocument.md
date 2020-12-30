@@ -395,7 +395,7 @@ mOpeCenter.shouldQuitGame(MainActivity.this, new OnQuitGameListener() {
             destroySDK();
             finish();//此方法需替换成游戏方退出游戏页面方法
         }
-	}
+    }
 });
 ```
 
