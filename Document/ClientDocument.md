@@ -29,6 +29,7 @@ v2.26.0.8 |  2019-07-29  |   涂仕聪    |   修改AndroidManifest里的FilePro
 v2.28.0.0 |  2019-09-17  |   涂仕聪    |   提供实名认证入口
 v2.29.0.0 |  2019-11-01  |   涂仕聪    |   android Q兼容
 v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，新增版本更新提示
+v2.37.0.205 |  2021-03-24  |   涂仕聪    |   新增违规举报接口
 
 
 # 目录
@@ -63,6 +64,7 @@ v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，�
 &nbsp;&nbsp;&nbsp;&nbsp;[3.17 跳转到游戏圈页面](#跳转到游戏圈页面)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.18 User类内部方法含义说明](#User类内部方法含义说明)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.19 实名认证](#实名认证)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.20 违规举报](#违规举报)  
 # 文档说明
 ## 功能描述
 4399运营SDK（以下简称：SDK）主要用来向第三方游戏开发者提供便捷、安全一级可靠的4399账户登录、多渠道充值付费、版本升级检测等功能。本文主要描述SDK接口的使用方法，供合作伙伴的开发者接入使用。
@@ -594,5 +596,28 @@ mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() 
                 Toast.makeText(MainActivity.this, "name auth onCancel", Toast.LENGTH_SHORT).show();
             }
         });
+```
+
+## 违规举报 
+
+- 使用场景举例：在游戏内玩家聊天内容后（或点击玩家头像出现的用户信息详情弹窗中）放置一个举报按钮。
+
+- 注意：本接口主要向游戏方开发者提供聊天举报功能支持，无此需求开发者请自行忽略。
+
+```java
+   /**
+     * @param violation 违规信息，各字段必须且名称固定如下，若确实没有可留空，但不能不传
+     *          
+     * Map<String, String> violation = new HashMap<String, String>();
+     *                    violation.put("g_uid", "被举报人uid");
+     *                    violation.put("g_tid", "聊天频道ID");
+     *                    violation.put("g_sid", "服务器ID");
+     *                    violation.put("g_rid", "角色ID");
+     *                    violation.put("g_role", "角色名称");
+     *                    violation.put("g_gname", "公会名");
+     *                    violation.put("g_cname", "宠物名");
+     *                    violation.put("g_content", "聊天内容");
+     */                
+mOpeCenter.reportViolation(MainActivity.this, violation);
 ```
 
