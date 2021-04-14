@@ -188,11 +188,6 @@ v2.37.0.205 |  2021-03-24  |   涂仕聪    |   新增违规举报接口
         android:theme="@style/m4399TranslucentFullscreenActivityTheme" />
     <activity
         android:configChanges="orientation|screenSize|keyboardHidden"
-        android:name="cn.m4399.operate.extension.index.UserCenterActivity"
-        android:screenOrientation="behind"
-        android:theme="@style/m4399TranslucentFullscreenActivityTheme" />
-    <activity
-        android:configChanges="orientation|screenSize|keyboardHidden"
         android:name="cn.m4399.operate.deprecated.CommonActivity"
         android:screenOrientation="behind"
         android:theme="@style/m4399TranslucentFullscreenActivityTheme" />
