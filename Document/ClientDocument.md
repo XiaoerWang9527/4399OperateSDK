@@ -30,7 +30,7 @@ v2.28.0.0 |  2019-09-17  |   涂仕聪    |   提供实名认证入口
 v2.29.0.0 |  2019-11-01  |   涂仕聪    |   android Q兼容
 v2.31.0.8 |  2020-04-14  |   涂仕聪    |   修改混淆和AndroidManifest，新增版本更新提示
 v2.37.0.205 |  2021-03-24  |   涂仕聪    |   新增违规举报接口
-
+v2.37.0.211 |  2021-04-27  |   涂仕聪    |   新增Android 11兼容，声明所要进行交互的应用包名，主要用于外部授权登录
 
 # 目录
 
@@ -111,7 +111,7 @@ v2.37.0.205 |  2021-03-24  |   涂仕聪    |   新增违规举报接口
 
 
 ### 配置AndroidManifest.xml文件
-- 添加SDK所需的权限
+- 添加SDK所需的权限与Android 11兼容，声明所要进行交互的应用包名，主要用于外部授权登录
 ``` xml
     <!--
        4399 运营SDK：
@@ -135,6 +135,14 @@ v2.37.0.205 |  2021-03-24  |   涂仕聪    |   新增违规举报接口
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <!--suppress DeprecatedClassUsageInspection -->
     <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- 4399 运营SDK：Android 11兼容，声明所要进行交互的应用包名，主要用于外部授权登录 -->
+    <queries>
+        <package android:name="com.m4399.gamecenter" />
+        <package android:name="com.tencent.mobileqq" />
+        <package android:name="com.sina.weibo" />
+        <package android:name="com.tencent.mm" />
+    </queries>
 ```
 - 注册SDK相关Activity&Service，注意必须放入`<application>`元素区块内
 ``` xml
