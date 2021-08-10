@@ -171,72 +171,48 @@ v2.37.0.211 |  2021-04-27  |   涂仕聪    |   新增Android 11兼容，声明�
             android:resource="@xml/m4399_ope_file_paths" />
     </provider>
 
-    <!-- 
-        4399 运营SDK： 以下是 Activity 配置，以jar+res 方式接入需要打开以下内容，aar则不需
-        另外，第三方页面方向有时候需要明确设置，比如支付宝h5页面，可以设置为横屏
+    <!--
+            4399 运营SDK：
+            以下是 Activity 配置，以jar+res 方式接入需要打开以下内容，aar则不需
+            另外，第三方页面方向有时候需要明确设置，比如支付宝h5页面，可以设置为横屏
 
-        activity的配置不能少于orientation|screenSize|keyboardHidden，这些配置是为了防止Activity被系统或第三方界面强
-        拉成竖屏时，发生重建而加入的。SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，否则会包初始化问题
-     -->
-    <activity
-        android:configChanges="orientation|screenSize|keyboardHidden"
-        android:multiprocess="false"
-        android:name="cn.m4399.operate.permission.PermissionActivity"
-        android:screenOrientation="behind"
-        android:theme="@style/m4399.Operate.Theme.Transparent" />
-    <activity
-        android:configChanges="orientation|screenSize|keyboardHidden"
-        android:name="cn.m4399.operate.component.OperateActivity"
-        android:screenOrientation="behind"
-        android:theme="@style/m4399TranslucentFullscreenActivityTheme" />
-    <activity
-        android:configChanges="orientation|screenSize|keyboardHidden"
-        android:name="cn.m4399.operate.recharge.ui.activity.RechargeActivity"
-        android:screenOrientation="behind"
-        android:theme="@style/m4399TranslucentFullscreenActivityTheme" />
-    <activity
-        android:configChanges="orientation|screenSize|keyboardHidden"
-        android:name="cn.m4399.operate.deprecated.CommonActivity"
-        android:screenOrientation="behind"
-        android:theme="@style/m4399TranslucentFullscreenActivityTheme" />
-    <!--  4399 运营SDK：以下是支付宝 H5 页面Activity  -->
-    <activity
-        android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-        android:exported="false"
-        android:name="com.alipay.sdk.app.H5PayActivity"
-        android:screenOrientation="behind"
-        android:windowSoftInputMode="adjustResize|stateHidden" />
-    <!--  4399 运营SDK：以下是短代充值相关SDK  -->
-    <activity
-        android:configChanges="keyboardHidden|screenSize|orientation"
-        android:name="com.arcsoft.hpay100.HPaySdkActivity"
-        android:screenOrientation="behind"
-        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-    <activity
-        android:configChanges="keyboardHidden|screenSize|orientation"
-        android:name="com.arcsoft.hpay100.web.HPayWebActivity"
-        android:screenOrientation="behind"
-        android:theme="@style/hpay_custom_confim_dialog" />
-    <activity
-        android:configChanges="keyboardHidden|screenSize|orientation"
-        android:name="com.arcsoft.hpay100.web.HPayWebFullActivity"
-        android:screenOrientation="behind" />
-    <!--  4399 运营SDK：以下是一键登录SDK  -->
-    <activity
-        android:exported="false"
-        android:name="cn.com.chinatelecom.account.sdk.ui.AuthActivity"
-        android:screenOrientation="behind"
-        android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
-    <activity
-        android:exported="false"
-        android:name="cn.com.chinatelecom.account.sdk.ui.PrivacyWebviewActivity"
-        android:screenOrientation="behind"
-        android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
-    <activity
-        android:exported="false"
-        android:name="cn.m4399.operate.account.onekey.wo.WoLoginActivity"
-        android:screenOrientation="behind"
-        android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+            activity的配置不能少于orientation|screenSize|keyboardHidden，这些配置是为了防止Activity被系统或第三方界面强
+            拉成竖屏时，发生重建而加入的。SDK的Activity支持横屏或竖屏，但不支持横竖屏切换，否则会包初始化问题
+        -->
+        <activity
+            android:name="cn.m4399.operate.component.OperateActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@style/m4399TranslucentFullscreenActivityTheme" />
+        <activity
+            android:name="cn.m4399.operate.recharge.RechargeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <!-- 4399 运营SDK：以下是支付宝 H5 页面Activity，请游戏方根据游戏的横竖屏要求手工配置landscape|portrait -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 4399 运营SDK：以下是一键登录SDK，请游戏方根据游戏的横竖屏要求手工配置landscape|portrait -->
+        <activity
+            android:name="cn.com.chinatelecom.account.sdk.ui.AuthActivity"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="cn.com.chinatelecom.account.sdk.ui.PrivacyWebviewActivity"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="cn.m4399.operate.account.onekey.wo.WoLoginActivity"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
 
 </application>
 ```
