@@ -235,9 +235,6 @@ v2.37.0.211 |  2021-04-27  |   涂仕聪    |   新增Android 11兼容，声明�
 -keepclassmembers class cn.m4399.operate.R$* {*;}
 -keep class com.m4399.gamecenter.** {*;}
 
--dontwarn com.arcsoft.hpay100.**
--keep class com.arcsoft.hpay100.**{*;}
-
 -dontwarn android.net.**
 -keep class android.net.SSLCertificateSocketFactory{*;}
 -keep class com.ishumei.** { *; }
@@ -559,12 +556,11 @@ public final class User {
 - 注意：本接口主要为游戏功能提供支持，防沉迷功能由SDK内部实现，不需要调用此方法，无此需求开发者请自行忽略。
 
 ```java
-mOpeCenter.nameAuthentication(this, new OperateCenter.NameAuthSuccessListener() {
+mOpeCenter.authReward(this, new OperateCenter.NameAuthSuccessListener() {
             @Override
             public void onAuthSuccess(int idCardState) {
 	    	/**
-     		* idCardState: v2.30.0.28及之前版本， 0 未实名，1 小于8岁，2 小于18岁，3、4 18岁及以上
-     		*	       v2.30.0.28之后版本， 0 未实名，1 小于8岁，2 8-15岁，3、4 18岁及以上，5 16-17岁	
+     		* idCardState: 0 未实名，1 小于8岁，2 8-15岁，3、4 18岁及以上，5 16-17岁	
      		*/
                 Toast.makeText(MainActivity.this, "name auth success , idCardState: " + idCardState, Toast.LENGTH_SHORT).show();
             }
