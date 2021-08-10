@@ -117,22 +117,14 @@ v2.37.0.211 |  2021-04-27  |   涂仕聪    |   新增Android 11兼容，声明�
        4399 运营SDK：
        以下是权限配置，包括第三方SDK需要的，以jar+res 方式接入需要打开以下内容，aar则不需
     -->
-    <!-- 一般性权限 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
+   <!-- 一般性权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <!-- 短代权限 -->
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <!-- 一键登录 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <!--suppress DeprecatedClassUsageInspection -->
     <uses-permission android:name="android.permission.GET_TASKS" />
 
@@ -255,6 +247,7 @@ mOpeConfig = new OperateCenterConfig.Builder(this)
 	.setSupportExcess(true)     //设置服务端是否支持处理超出部分金额，默认为false
 	.setPopLogoStyle(PopLogoStyle.POPLOGOSTYLE_ONE) //设置悬浮窗样式，现有四种可选
 	.setPopWinPosition(PopWinPosition.POS_LEFT)	//设置悬浮窗默认显示位置，现有四种可选
+        .compatNotch(true)	// 设置游戏是否兼在高于Android 9.0版本系统容全面屏，默认值false（不兼容）
 	.build();
 mOpeCenter.setConfig(mOpeConfig);
 mOpeCenter.init(new OperateCenter.OnInitGloabListener() {
