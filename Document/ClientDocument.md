@@ -405,6 +405,51 @@ mOpeCenter.recharge(MainActivity.this,
 * `mark`订单号：最大长度32位，支持大小写字母、数字、‘|’(竖线)、‘-’（中划线）、‘_’（下划线），该字段*不可为空，不可为字符串“0”，不可重复*。
 * `productName`商品名称：最长不超过8个字符。 如果传入商品名，充值中心将直接显示改商品名称，如果充值金额大于下单时传入的`je`时，将显示商品名+XXX游戏币，相关游戏币的兑换比例在接入时提供给运营人员配置。如果未传入商品名，则直接显示XXX游戏币。
 
+<b>关于客户端回调模式</b>
+
+当使用充值，需要客户端来发放物品时，需要设置此回调方式
+```
+/**
+ * 设置发放物品回调
+ *
+ * 设置此方法后，发放物品的方式，将由客户端决定
+ *
+ * 注意：使用客户端回调有较高安全风险，应用应使用服务端回调，实在条件不允许才能使用此方式
+ *
+ * @param listener 回调对象
+ */
+public void setDeliveringGoodsListener(@NonNull OnDeliveringGoodsListener listener) {
+    ApiRecharge.singleton().setDeliverListener(listener);
+}
+```
+
+```
+public interface OnDeliveringGoodsListener {
+        /**
+         * 通知游戏方是否要发放物品
+         *
+         * @param of             充值订单
+         * @return 游戏派发物品成功，返回true， 否则返回false
+         * @see Order
+         */
+        boolean onDelivering(OrderFinished of);
+    }
+```
+
+使用示例：设置相应的回调，监听客户端是否发放物品
+```
+operateCenter.setDeliveringGoodsListener(new OperateCenter.OnDeliveringGoodsListener() {
+    @Override
+    public boolean onDelivering(OrderFinished of) {
+        toast(mActivity, getString(R.string.demo_fmt_distribution_of_goods, of));
+        Pair<String, Integer> conclusion = of.conclude();
+        mGoodsList.add(getString(R.string.demo_fmt_recharge_detail,
+                of.money(), conclusion.first, conclusion.second));
+        // 如果游戏因为某些原因发放失败，应返回false
+        return true;
+    }
+});
+```
 
 <b>关于充值审核模式</b>
 - 充值审核模式主要是用于游戏方测试充值回调  
